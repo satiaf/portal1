@@ -16,6 +16,19 @@
 		tampilJenis_User();
 		tampilJenis_Media();
 		tampilSebaran_Oplah();
+		tampilSebaran_Oplah_Kabupaten();
+		tampilStatus();
+		tampilRangking();
+		tampilRangkingGlobal();
+		tampilUsia();
+		tampilWartawan();
+		tampilUpdateBerita();
+		tampilKhusus();
+		tampilCetak();
+		tampilKompetensi();
+		tampilSps();
+		tampilJumlahOplah();
+		tampilExpired();
 		<?php
 		if ($this->session->flashdata('msg') != '') {
 			echo "effect_msg();";
@@ -440,6 +453,98 @@
 		$.get('<?php echo base_url('Master/tampilKlasifikasi'); ?>', function(data) {
 			MyTable.fnDestroy();
 			$('#data-klasifikasi').html(data);
+			refresh();
+		});
+	}
+	function tampilSebaran_Oplah_Kabupaten() {
+		$.get('<?php echo base_url('Master/tampil_sebaran_oplah_kabupaten'); ?>', function(data) {
+			MyTable.fnDestroy();
+			$('#data_sebaran_oplah_kabupaten').html(data);
+			refresh();
+		});
+	}
+	function tampilStatus() {
+		$.get('<?php echo base_url('Master/tampil_status'); ?>', function(data) {
+			MyTable.fnDestroy();
+			$('#data_status').html(data);
+			refresh();
+		});
+	}
+
+	function tampilRangking() {
+		$.get('<?php echo base_url('Master/tampil_rangking'); ?>', function(data) {
+			MyTable.fnDestroy();
+			$('#data_rangking').html(data);
+			refresh();
+		});
+	}
+	function tampilRangkingGlobal() {
+		$.get('<?php echo base_url('Master/tampil_rangking_global'); ?>', function(data) {
+			MyTable.fnDestroy();
+			$('#data_rangking_global').html(data);
+			refresh();
+		});
+	}
+	function tampilUsia() {
+		$.get('<?php echo base_url('Master/tampil_usia'); ?>', function(data) {
+			MyTable.fnDestroy();
+			$('#data_usia').html(data);
+			refresh();
+		});
+	}
+	function tampilWartawan() {
+		$.get('<?php echo base_url('Master/tampil_wartawan'); ?>', function(data) {
+			MyTable.fnDestroy();
+			$('#data_wartawan').html(data);
+			refresh();
+		});
+	}
+	function tampilUpdateBerita() {
+		$.get('<?php echo base_url('Master/tampil_update_berita'); ?>', function(data) {
+			MyTable.fnDestroy();
+			$('#data_update_berita').html(data);
+			refresh();
+		});
+	}
+	function tampilKhusus() {
+		$.get('<?php echo base_url('Master/tampil_khusus'); ?>', function(data) {
+			MyTable.fnDestroy();
+			$('#data_khusus').html(data);
+			refresh();
+		});
+	}
+	function tampilCetak() {
+		$.get('<?php echo base_url('Master/tampil_cetak'); ?>', function(data) {
+			MyTable.fnDestroy();
+			$('#data_cetak').html(data);
+			refresh();
+		});
+	}
+	function tampilKompetensi() {
+		$.get('<?php echo base_url('Master/tampil_kompetensi'); ?>', function(data) {
+			MyTable.fnDestroy();
+			$('#data_kompetensi').html(data);
+			refresh();
+		});
+	}
+	function tampilSps() {
+		$.get('<?php echo base_url('Master/tampil_sps'); ?>', function(data) {
+			MyTable.fnDestroy();
+			$('#data_sps').html(data);
+			refresh();
+		});
+	}
+	function tampilJumlahOplah() {
+		$.get('<?php echo base_url('Master/tampil_jumlah_oplah'); ?>', function(data) {
+			MyTable.fnDestroy();
+			$('#data_jumlah_oplah').html(data);
+			refresh();
+		});
+	}
+	function tampilExpired() {
+		$.get('<?php echo base_url('Master/tampil_expired'); ?>', function(data) {
+			MyTable.fnDestroy();
+			$('#data_expired').html(data);
 			refresh();
 		});
 	}

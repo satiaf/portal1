@@ -55,6 +55,42 @@
           <li <?php if($subpage=='Sebaran Oplah'){echo "class=\"active\"";} ?>>
             <a href="<?php echo base_url(); ?>master/sebaran_oplah/"><i class="fa fa-angle-right"></i> Sebaran Oplah</a>
           </li>
+          <li <?php if($subpage=='Sebaran Oplah Kabupaten'){echo "class=\"active\"";} ?>>
+            <a href="<?php echo base_url(); ?>master/sebaran_oplah_kabupaten/"><i class="fa fa-angle-right"></i> Sebaran Oplah Kabupaten</a>
+          </li>
+          <li <?php if($subpage=='Status Kantor'){echo "class=\"active\"";} ?>>
+            <a href="<?php echo base_url(); ?>master/status/"><i class="fa fa-angle-right"></i> Status Kantor</a>
+          </li>
+          <li <?php if($subpage=='Rangking Indonesia'){echo "class=\"active\"";} ?>>
+            <a href="<?php echo base_url(); ?>master/rangking/"><i class="fa fa-angle-right"></i> Rangking Indoesia</a>
+          </li>
+          <li <?php if($subpage=='Rangking Global'){echo "class=\"active\"";} ?>>
+            <a href="<?php echo base_url(); ?>master/rangking_global/"><i class="fa fa-angle-right"></i> Rangking Global</a>
+          </li>
+          <li <?php if($subpage=='Usia Web'){echo "class=\"active\"";} ?>>
+            <a href="<?php echo base_url(); ?>master/usia/"><i class="fa fa-angle-right"></i> Usia Web</a>
+          </li>
+          <li <?php if($subpage=='Wartawan Liputan'){echo "class=\"active\"";} ?>>
+            <a href="<?php echo base_url(); ?>master/wartawan/"><i class="fa fa-angle-right"></i> Wartawan Liputan</a>
+          </li>
+          <li <?php if($subpage=='Update Berita'){echo "class=\"active\"";} ?>>
+            <a href="<?php echo base_url(); ?>master/update_berita/"><i class="fa fa-angle-right"></i> Update Berita</a>
+          </li>
+          <li <?php if($subpage=='Halaman Khusus'){echo "class=\"active\"";} ?>>
+            <a href="<?php echo base_url(); ?>master/khusus/"><i class="fa fa-angle-right"></i> Halaman Khusus</a>
+          </li>
+          <li <?php if($subpage=='Mesin Cetak'){echo "class=\"active\"";} ?>>
+            <a href="<?php echo base_url(); ?>master/cetak/"><i class="fa fa-angle-right"></i> Mesin Cetak</a>
+          </li>
+          <li <?php if($subpage=='Kompetensi Wartawan'){echo "class=\"active\"";} ?>>
+            <a href="<?php echo base_url(); ?>master/kompetensi/"><i class="fa fa-angle-right"></i> Kompetensi Wartawan</a>
+          </li>
+          <li <?php if($subpage=='Terdaftar SPS'){echo "class=\"active\"";} ?>>
+            <a href="<?php echo base_url(); ?>master/sps/"><i class="fa fa-angle-right"></i> Terdaftar Sps</a>
+          </li>
+          <li <?php if($subpage=='Jumlah Oplah'){echo "class=\"active\"";} ?>>
+            <a href="<?php echo base_url(); ?>master/jumlah_oplah/"><i class="fa fa-angle-right"></i> Jumlah Oplah</a>
+          </li>
           <li <?php if($subpage=='Expired Web'){echo "class=\"active\"";} ?>>
             <a href="<?php echo base_url(); ?>master/expired/"><i class="fa fa-angle-right"></i> Expired Web</a>
           </li>

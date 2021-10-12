@@ -81,12 +81,26 @@ class Master extends AUTH_Controller {
 		$data['datasebaran_oplah'] = $this->M_master->get_id('ta_sebaran_oplah', "id ASC");
 		$this->load->view('sebaran_oplah/list_data', $data);
 	}
+	public function sebaran_oplah_kabupaten() {
+		$data['userdata'] = $this->userdata;
+
+		$data['page'] = "Master";
+		$data['subpage'] = "Sebaran Oplah Kabupaten";
+		$data['judul'] = " Sebaran Oplah Kabupaten";
+
+		$this->template->views('sebaran_oplah_kabupaten/home', $data);
+	}
+	public function tampil_sebaran_oplah_kabupaten() {
+		
+		$data['datasebaran_oplah_kabupaten'] = $this->M_master->get_id('ta_oplah_kabupaten', "id ASC");
+		$this->load->view('sebaran_oplah_kabupaten/list_data', $data);
+	}
 
 	public function expired() {
 		$data['userdata'] = $this->userdata;
 
 		$data['page'] = "Master";
-		$data['subpage'] = "Expired Web ";
+		$data['subpage'] = "Expired Web";
 		$data['judul'] = " Expired Web";
 
 		$this->template->views('expired/home', $data);
@@ -95,6 +109,160 @@ class Master extends AUTH_Controller {
 		
 		$data['dataexpired'] = $this->M_master->get_id('ta_expired_web', "id ASC");
 		$this->load->view('expired/list_data', $data);
+	}
+	public function status() {
+		$data['userdata'] = $this->userdata;
+
+		$data['page'] = "Master";
+		$data['subpage'] = "Status Kantor";
+		$data['judul'] = " Status Kantor";
+
+		$this->template->views('status/home', $data);
+	}
+	public function tampil_status() {
+		
+		$data['datastatus'] = $this->M_master->get_id('ta_st_kantor', "id ASC");
+		$this->load->view('status/list_data', $data);
+	}
+	public function rangking() {
+		$data['userdata'] = $this->userdata;
+
+		$data['page'] = "Master";
+		$data['subpage'] = "Rangking Indonesia";
+		$data['judul'] = " Ragnking Indonesia";
+
+		$this->template->views('rangking/home', $data);
+	}
+	public function tampil_rangking() {
+		
+		$data['datarangking'] = $this->M_master->get_id('ta_rangking_indonesia', "id ASC");
+		$this->load->view('rangking/list_data', $data);
+	}
+	public function rangking_global() {
+		$data['userdata'] = $this->userdata;
+
+		$data['page'] = "Master";
+		$data['subpage'] = "Rangking Global";
+		$data['judul'] = " Rangking Global";
+
+		$this->template->views('rangking_global/home', $data);
+	}
+	public function tampil_rangking_global() {
+		
+		$data['datarangking_global'] = $this->M_master->get_id('ta_rangking_global', "id ASC");
+		$this->load->view('rangking_global/list_data', $data);
+	}
+	public function usia() {
+		$data['userdata'] = $this->userdata;
+
+		$data['page'] = "Master";
+		$data['subpage'] = "Usia Web";
+		$data['judul'] = " Usia Web";
+
+		$this->template->views('usia/home', $data);
+	}
+	public function tampil_usia() {
+		
+		$data['datausia'] = $this->M_master->get_id('ta_usia_web', "id ASC");
+		$this->load->view('usia/list_data', $data);
+	}
+	public function wartawan() {
+		$data['userdata'] = $this->userdata;
+
+		$data['page'] = "Master";
+		$data['subpage'] = "Wartawan Liputan";
+		$data['judul'] = " Wartawan Liputan";
+
+		$this->template->views('wartawan/home', $data);
+	}
+	public function tampil_wartawan() {
+		
+		$data['datawartawan'] = $this->M_master->get_id('ta_wartawan_liputan', "id ASC");
+		$this->load->view('wartawan/list_data', $data);
+	}
+	public function update_berita() {
+		$data['userdata'] = $this->userdata;
+
+		$data['page'] = "Master";
+		$data['subpage'] = "Update Berita";
+		$data['judul'] = " Update Berita";
+
+		$this->template->views('update_berita/home', $data);
+	}
+	public function tampil_update_berita() {
+		
+		$data['dataupdate_berita'] = $this->M_master->get_id('ta_update_berita', "id ASC");
+		$this->load->view('update_berita/list_data', $data);
+	}
+	public function khusus() {
+		$data['userdata'] = $this->userdata;
+
+		$data['page'] = "Master";
+		$data['subpage'] = "Halaman Khusus";
+		$data['judul'] = " Halaman Khusus";
+
+		$this->template->views('khusus/home', $data);
+	}
+	public function tampil_khusus() {
+		
+		$data['datakhusus'] = $this->M_master->get_id('ta_halaman_khusus', "id ASC");
+		$this->load->view('khusus/list_data', $data);
+	}
+	public function cetak() {
+		$data['userdata'] = $this->userdata;
+
+		$data['page'] = "Master";
+		$data['subpage'] = "Mesin Cetak";
+		$data['judul'] = " Mesin Cetak";
+
+		$this->template->views('cetak/home', $data);
+	}
+	public function tampil_cetak() {
+		
+		$data['datacetak'] = $this->M_master->get_id('ta_mesin_cetak', "id ASC");
+		$this->load->view('cetak/list_data', $data);
+	}
+	public function kompetensi() {
+		$data['userdata'] = $this->userdata;
+
+		$data['page'] = "Master";
+		$data['subpage'] = "Kompetensi Wartawan";
+		$data['judul'] = " Kompetensi Wartawan";
+
+		$this->template->views('kompetensi/home', $data);
+	}
+	public function tampil_kompetensi() {
+		
+		$data['datakompetensi'] = $this->M_master->get_id('ta_kompetensi_wartawan', "id ASC");
+		$this->load->view('kompetensi/list_data', $data);
+	}
+	public function sps() {
+		$data['userdata'] = $this->userdata;
+
+		$data['page'] = "Master";
+		$data['subpage'] = "Terdaftar SPS";
+		$data['judul'] = " Terdaftar SPS";
+
+		$this->template->views('sps/home', $data);
+	}
+	public function tampil_sps() {
+		
+		$data['datasps'] = $this->M_master->get_id('ta_terdaftar_sps', "id ASC");
+		$this->load->view('sps/list_data', $data);
+	}
+	public function jumlah_oplah() {
+		$data['userdata'] = $this->userdata;
+
+		$data['page'] = "Master";
+		$data['subpage'] = "Jumlah Oplah";
+		$data['judul'] = " Jumlah Oplah";
+
+		$this->template->views('jumlah_oplah/home', $data);
+	}
+	public function tampil_jumlah_oplah() {
+		
+		$data['datajumlah_oplah'] = $this->M_master->get_id('ta_jumlah_oplah', "id ASC");
+		$this->load->view('jumlah_oplah/list_data', $data);
 	}
 
 
