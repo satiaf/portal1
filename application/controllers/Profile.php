@@ -10,7 +10,8 @@ class Profile extends AUTH_Controller {
 	public function index() {
 		$data['userdata'] 		= $this->userdata;
 		
-		$data['page'] 			= "profile";
+		$data['page'] 			= "Master";
+		$data['subpage'] 		= "";
 		$data['judul'] 			= "Profile";
 		$data['deskripsi'] 		= "Setting Profile";
 		$this->template->views('profile', $data);
