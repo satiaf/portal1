@@ -7,7 +7,6 @@
 
         <h3 class="profile-username text-center"><?php echo $userdata->nama; ?></h3>
 
-        <p class="text-muted text-center">Web Developer</p>
 
         <ul class="list-group list-group-unbordered">
           <li class="list-group-item">
