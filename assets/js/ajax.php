@@ -16,6 +16,7 @@
 		tampilJenis_User();
 		tampilJenis_Media();
 		tampilSebaran_Oplah();
+		tampilBerita();
 		<?php
 		if ($this->session->flashdata('msg') != '') {
 			echo "effect_msg();";
@@ -662,4 +663,108 @@
 	$('#update-posisi').on('hidden.bs.modal', function () {
 		$('.form-msg').html('');
 	})
+
+	//Berita
+	function tampilBerita() {
+		$.get('<?php echo base_url('Berita/tampil'); ?>', function(data) {
+			MyTable.fnDestroy();
+			$('#data-berita').html(data);
+			refresh();
+		});
+	}
+
+	var id_user;
+	$(document).on("click", ".konfirmasiHapus-berita", function() {
+		id_user = $(this).attr("data-id");
+	})
+	$(document).on("click", ".hapus-dataBerita", function() {
+		var id = id_user;
+		
+		$.ajax({
+			method: "POST",
+			url: "<?php echo base_url('Berita/delete'); ?>",
+			data: "id=" +id
+		})
+		.done(function(data) {
+			$('#konfirmasiHapus').modal('hide');
+			tampilBerita();
+			$('.msg').html(data);
+			effect_msg();
+		})
+	})
+
+	$(document).on("click", ".update-dataBerita", function() {
+		var id = $(this).attr("data-id");
+		
+		$.ajax({
+			method: "POST",
+			url: "<?php echo base_url('Berita/update'); ?>",
+			data: "id=" +id
+		})
+		.done(function(data) {
+			$('#tempat-modal').html(data);
+			$('#update-berita').modal('show');
+		})
+	})
+
+	$('#form-tambah-berita').submit(function(e) {
+		var data = $(this).serialize();
+
+		$.ajax({
+			method: 'POST',
+			url: '<?php echo base_url('Berita/prosesTambah'); ?>',
+			data: data
+		})
+		.done(function(data) {
+			var out = jQuery.parseJSON(data);
+
+			tampilBerita();
+			if (out.status == 'form') {
+				$('.form-msg').html(out.msg);
+				effect_msg_form();
+			} else {
+				document.getElementById("form-tambah-berita").reset();
+				$('#tambah-berita').modal('hide');
+				$('.msg').html(out.msg);
+				effect_msg();
+			}
+		})
+		
+		e.preventDefault();
+	});
+
+	$(document).on('submit', '#form-update-berita', function(e){
+		var data = $(this).serialize();
+
+		$.ajax({
+			method: 'POST',
+			url: '<?php echo base_url('Berita/prosesUpdate'); ?>',
+			data: data
+		})
+		.done(function(data) {
+			var out = jQuery.parseJSON(data);
+
+			tampilBerita();
+			if (out.status == 'form') {
+				$('.form-msg').html(out.msg);
+				effect_msg_form();
+			} else {
+				document.getElementById("form-update-berita").reset();
+				$('#update-berita').modal('hide');
+				$('.msg').html(out.msg);
+				effect_msg();
+			}
+		})
+		
+		e.preventDefault();
+	});
+
+	$('#tambah-berita').on('hidden.bs.modal', function () {
+	  $('.form-msg').html('');
+	})
+
+	$('#update-berita').on('hidden.bs.modal', function () {
+	  $('.form-msg').html('');
+	})
+	//</- berita ->
 </script>

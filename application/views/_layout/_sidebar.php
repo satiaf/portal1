@@ -63,8 +63,8 @@
         </ul>
       </li>
       <?php } ?>
-      <li <?php if ($page == 'ta_berita') {echo 'class="active"';} ?>>
-        <a href="<?php echo base_url('Pegawai'); ?>">
+      <li <?php if ($page == 'berita') {echo 'class="active"';} ?>>
+        <a href="<?php echo base_url('Berita'); ?>">
           <i class="fa fa-user"></i>
           <span>Berita</span>
         </a>
