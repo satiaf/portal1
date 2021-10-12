@@ -55,7 +55,7 @@
           <li <?php if($subpage=='Sebaran Oplah'){echo "class=\"active\"";} ?>>
             <a href="<?php echo base_url(); ?>master/sebaran_oplah/"><i class="fa fa-angle-right"></i> Sebaran Oplah</a>
           </li>
-          <li <?php if($subpage=='Sebaran Oplah Kabupaten'){echo "class=\"active\"";} ?>>
+           <li <?php if($subpage=='Sebaran Oplah Kabupaten'){echo "class=\"active\"";} ?>>
             <a href="<?php echo base_url(); ?>master/sebaran_oplah_kabupaten/"><i class="fa fa-angle-right"></i> Sebaran Oplah Kabupaten</a>
           </li>
           <li <?php if($subpage=='Status Kantor'){echo "class=\"active\"";} ?>>
