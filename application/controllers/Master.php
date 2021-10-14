@@ -7,6 +7,127 @@ class Master extends AUTH_Controller {
 		$this->load->model('M_master');
 	}
 
+	public function user() {
+		$data['userdata'] = $this->userdata;
+		$data['dataUser'] = $this->M_master->select_all_user();
+		$data['dataJenis_user'] = $this->M_master->select_all('ta_jenis_user', "id ASC");
+
+		$data['page'] = "Master";
+		$data['subpage'] = "User";
+		$data['judul'] = "Data User";
+		$data['deskripsi'] = "Manage Data User";
+
+		$data['modal_tambah_user'] = show_my_modal('modals/modal_tambah_user', 'tambah-user', $data);
+
+		$this->template->views('user/home', $data);
+	}
+
+	public function tampil_user() {
+		$data['dataUser'] = $this->M_master->select_all_user();
+		$this->load->view('user/list_data', $data);
+	}
+
+	public function tambah_user() {
+		$this->form_validation->set_rules('nama', 'Nama Tidak Boleh Kosong', 'trim|required');
+		$this->form_validation->set_rules('telephone', 'Telephone Berita Tidak Boleh Kosong', 'trim|required');
+		$this->form_validation->set_rules('alamat', 'Alamat Tidak Boleh Kosong', 'trim|required');
+		$this->form_validation->set_rules('media', 'Media Tidak Boleh Kosong', 'trim|required');
+		$this->form_validation->set_rules('username', 'Username Tidak Boleh Kosong', 'trim|required');
+		$this->form_validation->set_rules('password', 'Password Tidak Boleh Kosong', 'trim|required');
+		$this->form_validation->set_rules('jenis_user', 'Jenis User Tidak Boleh Kosong', 'trim|required');
+
+		$data = $this->input->post();
+		if ($this->form_validation->run() == TRUE) {
+			$config['upload_path'] = './assets/img/';
+			$config['allowed_types'] = 'jpg|png';
+			
+			$this->load->library('upload', $config);
+			
+			if (!$this->upload->do_upload('foto')){
+				$error = array('error' => $this->upload->display_errors());
+			}
+			else{
+				$data_foto = $this->upload->data();
+				$data['foto'] = $data_foto['file_name'];
+			}
+
+			$result = $this->M_master->insert_data('ta_user', $data);
+			if ($result > 0) {
+				$this->session->set_flashdata('msg', show_succ_msg('Data User Berhasil ditambah'));
+				redirect('Master/user');
+			} else {
+				$this->session->set_flashdata('msg', show_err_msg('Data User Gagal ditambah'));
+				redirect('Master/user');
+			}
+		} else {
+			$this->session->set_flashdata('msg', show_err_msg(validation_errors()));
+			redirect('Master/user');
+		}
+	}
+
+	public function update_user() {
+		$data['userdata'] 	= $this->userdata;
+
+		$id 				= trim($_POST['id']);
+		$data['dataUser'] = $this->M_master->select_by_id($id);
+		$data['dataJenis_user'] = $this->M_master->select_all('ta_jenis_user', "id ASC");
+
+		echo show_my_modal('modals/modal_update_user', 'update-user', $data);
+	}
+
+	public function ubah_user() {
+		$this->form_validation->set_rules('nama', 'Nama Tidak Boleh Kosong', 'trim|required');
+		$this->form_validation->set_rules('telephone', 'Telephone Berita Tidak Boleh Kosong', 'trim|required');
+		$this->form_validation->set_rules('alamat', 'Alamat Tidak Boleh Kosong', 'trim|required');
+		$this->form_validation->set_rules('media', 'Media Tidak Boleh Kosong', 'trim|required');
+		$this->form_validation->set_rules('username', 'Username Tidak Boleh Kosong', 'trim|required');
+		$this->form_validation->set_rules('password', 'Password Tidak Boleh Kosong', 'trim|required');
+		$this->form_validation->set_rules('jenis_user', 'Jenis User Tidak Boleh Kosong', 'trim|required');
+
+		$id = $_POST['id'];
+		$data = $this->input->post();
+
+		if ($this->form_validation->run() == TRUE) {
+			$config['upload_path'] = './assets/img/';
+			$config['allowed_types'] = 'jpg|png';
+			
+			$this->load->library('upload', $config);
+			
+			if (!$this->upload->do_upload('foto')){
+				$error = array('error' => $this->upload->display_errors());
+			}
+			else{
+				$data_foto = $this->upload->data();
+				$data['foto'] = $data_foto['file_name'];
+			}
+
+			$result = $this->M_master->update_data('ta_user', $data, $id);
+			if ($result > 0) {
+				$this->session->set_flashdata('msg', show_succ_msg('Data User Berhasil diubah'));
+				redirect('Master/user');
+			} else {
+				$this->session->set_flashdata('msg', show_err_msg('Data User Gagal diubah'));
+				redirect('Master/user');
+			}
+		} else {
+			$this->session->set_flashdata('msg', show_err_msg(validation_errors()));
+			redirect('Master/user');
+		}
+	}
+
+	public function delete_user() {
+		$id = $_POST['id'];
+		$result = $this->M_master->delete('ta_user' ,$id);
+
+		if ($result > 0) {
+			echo show_succ_msg('Data Berita Berhasil dihapus', '20px');
+		} else {
+			echo show_err_msg('Data Berita Gagal dihapus', '20px');
+		}
+	}
+
+	//
+
 	public function tipe_berita() {
 		$data['userdata'] = $this->userdata;
 
@@ -259,15 +380,12 @@ class Master extends AUTH_Controller {
 
 		$this->template->views('jumlah_oplah/home', $data);
 	}
+	
 	public function tampil_jumlah_oplah() {
 		
 		$data['datajumlah_oplah'] = $this->M_master->get_id('ta_jumlah_oplah', "id ASC");
 		$this->load->view('jumlah_oplah/list_data', $data);
 	}
-
-
-
-	
 
 	public function klasifikasi() {
 		$data['userdata'] = $this->userdata;
