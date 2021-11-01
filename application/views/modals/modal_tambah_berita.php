@@ -4,7 +4,7 @@
   <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
   <h3 style="display:block; text-align:center;">Tambah Data Pegawai</h3>
 
-  <form class="form-horizontal" action="<?php echo base_url('Berita/tambah') ?>" method="POST" enctype="multipart/form-data">
+  <form class="form-horizontal" action="<?php echo base_url('Data_berita/tambah') ?>" method="POST" enctype="multipart/form-data">
     
     <div class="input-group form-group">
       <span class="input-group-addon" id="sizing-addon2">

@@ -3,6 +3,45 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class M_master extends CI_Model {
 
+	public function select_all_user(){
+		$this->db->select('tu.*, ju.nama_jenis_user');
+		$this->db->from('ta_user tu');
+		$this->db->join('ta_jenis_user ju', 'ju.id = tu.jenis_user', 'left');
+		$this->db->order_by('id ASC');
+		$query = $this->db->get();
+		return $query->result();
+	}
+
+	Function select_all($table_name,  $order = null)
+	{
+		$this->db->select('*');
+		$this->db->from($table_name);
+		$this->db->order_by($order);
+		$query = $this->db->get();
+		return $query->result();
+	}
+
+	public function select_by_id($id) {
+		$this->db->from('ta_user');
+		$this->db->where('id', $id);
+		$query = $this->db->get();
+		return $query->row();
+	}
+
+	public function delete($tbl, $id) {
+		$sql = "DELETE FROM $tbl WHERE id='" .$id ."'";
+
+		$this->db->query($sql);
+
+		return $this->db->affected_rows();
+	}
+
+	public function update_data($tbl, $data, $id) {
+		$this->db->where("id", $id);
+		$this->db->update($tbl, $data);
+		return $this->db->affected_rows();
+	}
+
 	// Function get_id($table_name, $where, $order = null)
 	// {
 	// 	$this->db->select('*');
@@ -30,8 +69,6 @@ class M_master extends CI_Model {
 		$query = $this->db->get();
 		return $query->result_array();
 	}
-
-	
 
 	//get
 	function get_data($table_name, $order = null)
@@ -76,22 +113,6 @@ class M_master extends CI_Model {
 		$data = $this->db->query($sql);
 
 		return $data->result();
-	}
-
-	public function select_all() {
-		$sql = " SELECT pegawai.id AS id, pegawai.nama AS pegawai, pegawai.telp AS telp, kota.nama AS kota, kelamin.nama AS kelamin, posisi.nama AS posisi FROM pegawai, kota, kelamin, posisi WHERE pegawai.id_kelamin = kelamin.id AND pegawai.id_posisi = posisi.id AND pegawai.id_kota = kota.id";
-
-		$data = $this->db->query($sql);
-
-		return $data->result();
-	}
-
-	public function select_by_id($id) {
-		$sql = "SELECT tbl_klasifikasi.id AS id_klasifikasi, tbl_klasifikasi.nama_klasifikasi AS nama, tbl_klasifikasi.id_kategori AS id_kategori FROM tbl_klasifikasi, tbl_kategori WHERE tbl_klasifikasi.id = '{$id}'";
-
-		$data = $this->db->query($sql);
-
-		return $data->row();
 	}
 
 	public function select_by_posisi($id) {

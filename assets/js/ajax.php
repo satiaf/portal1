@@ -30,6 +30,7 @@
 		tampilSps();
 		tampilJumlahOplah();
 		tampilExpired();
+		tampilUser();
 		<?php
 		if ($this->session->flashdata('msg') != '') {
 			echo "effect_msg();";
@@ -771,7 +772,7 @@
 
 	//Berita
 	function tampilBerita() {
-		$.get('<?php echo base_url('Berita/tampil'); ?>', function(data) {
+		$.get('<?php echo base_url('Data_berita/tampil'); ?>', function(data) {
 			MyTable.fnDestroy();
 			$('#data-berita').html(data);
 			refresh();
@@ -787,7 +788,7 @@
 		
 		$.ajax({
 			method: "POST",
-			url: "<?php echo base_url('Berita/delete'); ?>",
+			url: "<?php echo base_url('Data_berita/delete'); ?>",
 			data: "id=" +id
 		})
 		.done(function(data) {
@@ -803,7 +804,7 @@
 		
 		$.ajax({
 			method: "POST",
-			url: "<?php echo base_url('Berita/update'); ?>",
+			url: "<?php echo base_url('Data_berita/update'); ?>",
 			data: "id=" +id
 		})
 		.done(function(data) {
@@ -817,7 +818,7 @@
 
 		$.ajax({
 			method: 'POST',
-			url: '<?php echo base_url('Berita/prosesTambah'); ?>',
+			url: '<?php echo base_url('Data_berita/prosesTambah'); ?>',
 			data: data
 		})
 		.done(function(data) {
@@ -843,7 +844,7 @@
 
 		$.ajax({
 			method: 'POST',
-			url: '<?php echo base_url('Berita/prosesUpdate'); ?>',
+			url: '<?php echo base_url('Data_berita/prosesUpdate'); ?>',
 			data: data
 		})
 		.done(function(data) {
@@ -869,6 +870,58 @@
 	})
 
 	$('#update-berita').on('hidden.bs.modal', function () {
+	  $('.form-msg').html('');
+	})
+	//</- berita ->
+
+	//User
+	function tampilUser() {
+		$.get('<?php echo base_url('Master/tampil_user'); ?>', function(data) {
+			MyTable.fnDestroy();
+			$('#data-user').html(data);
+			refresh();
+		});
+	}
+
+	var id_user;
+	$(document).on("click", ".konfirmasiHapus-user", function() {
+		id_user = $(this).attr("data-id");
+	})
+	$(document).on("click", ".hapus-dataUser", function() {
+		var id = id_user;
+		
+		$.ajax({
+			method: "POST",
+			url: "<?php echo base_url('Master/delete_user'); ?>",
+			data: "id=" +id
+		})
+		.done(function(data) {
+			$('#konfirmasiHapus').modal('hide');
+			tampilUser();
+			$('.msg').html(data);
+			effect_msg();
+		})
+	})
+
+	$(document).on("click", ".update-dataUser", function() {
+		var id = $(this).attr("data-id");
+		
+		$.ajax({
+			method: "POST",
+			url: "<?php echo base_url('Master/update_user'); ?>",
+			data: "id=" +id
+		})
+		.done(function(data) {
+			$('#tempat-modal').html(data);
+			$('#update-user').modal('show');
+		})
+	})
+
+	$('#tambah-user').on('hidden.bs.modal', function () {
+	  $('.form-msg').html('');
+	})
+
+	$('#update-user').on('hidden.bs.modal', function () {
 	  $('.form-msg').html('');
 	})
 	//</- berita ->

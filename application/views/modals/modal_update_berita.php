@@ -4,7 +4,7 @@
   <div class="form-msg"></div>
   <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
   <h3 style="display:block; text-align:center;">Update Data Berita</h3>
-      <form class="form-horizontal" action="<?php echo base_url('Berita/ubah') ?>" method="POST" enctype="multipart/form-data">
+      <form class="form-horizontal" action="<?php echo base_url('Data_berita/ubah') ?>" method="POST" enctype="multipart/form-data">
 
         <input type="hidden" name="id" value="<?php echo $dataBerita->id; ?>">
 

@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Berita extends AUTH_Controller {
+class Data_berita extends AUTH_Controller {
 	public function __construct() {
 		parent::__construct();
 		$this->load->model('M_berita');
@@ -50,14 +50,14 @@ class Berita extends AUTH_Controller {
 			$result = $this->M_berita->tambah($data);
 			if ($result > 0) {
 				$this->session->set_flashdata('msg', show_succ_msg('Data Berita Berhasil diubah'));
-				redirect('Berita');
+				redirect('Data_berita');
 			} else {
 				$this->session->set_flashdata('msg', show_err_msg('Data Berita Gagal diubah'));
-				redirect('Berita');
+				redirect('Data_berita');
 			}
 		} else {
 			$this->session->set_flashdata('msg', show_err_msg(validation_errors()));
-			redirect('Berita');
+			redirect('Data_berita');
 		}
 	}
 
@@ -95,14 +95,14 @@ class Berita extends AUTH_Controller {
 			$result = $this->M_berita->ubah($data, $id);
 			if ($result > 0) {
 				$this->session->set_flashdata('msg', show_succ_msg('Data Berita Berhasil diubah'));
-				redirect('Berita');
+				redirect('Data_berita');
 			} else {
 				$this->session->set_flashdata('msg', show_err_msg('Data Berita Gagal diubah'));
-				redirect('Berita');
+				redirect('Data_berita');
 			}
 		} else {
 			$this->session->set_flashdata('msg', show_err_msg(validation_errors()));
-			redirect('Berita');
+			redirect('Data_berita');
 		}
 	}
 

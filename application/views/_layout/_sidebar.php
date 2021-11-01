@@ -5,7 +5,7 @@
     <!-- Sidebar user panel (optional) -->
     <div class="user-panel">
       <div class="pull-left image">
-        <img src="<?php echo base_url(); ?>assets/img/<?php echo $userdata->foto; ?>" class="img-circle" alt="User Image">
+        <img style="width: 40px; height: 40px;" src="<?php echo base_url(); ?>assets/img/<?php echo $userdata->foto; ?>" class="img-circle" alt="User Image">
       </div>
       <div class="pull-left info">
         <p><?php echo $userdata->nama; ?></p>
@@ -94,13 +94,16 @@
           <li <?php if($subpage=='Expired Web'){echo "class=\"active\"";} ?>>
             <a href="<?php echo base_url(); ?>master/expired/"><i class="fa fa-angle-right"></i> Expired Web</a>
           </li>
+          <li <?php if($subpage=='User'){echo "class=\"active\"";} ?>>
+            <a href="<?php echo base_url(); ?>master/user/"><i class="fa fa-angle-right"></i> User</a>
+          </li>
 
 
         </ul>
       </li>
       <?php } ?>
       <li <?php if ($page == 'berita') {echo 'class="active"';} ?>>
-        <a href="<?php echo base_url('Berita'); ?>">
+        <a href="<?php echo base_url('Data_berita'); ?>">
           <i class="fa fa-user"></i>
           <span>Berita</span>
         </a>
