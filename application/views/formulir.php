@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Wizard-v5</title>
+    <title>Portal Berita</title>
     <!-- Mobile Specific Metas -->
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <!-- Font-->
@@ -26,36 +26,86 @@
                             <div class="inner">
                                 <div class="form-row">
                                     <div class="form-holder">
-                                        <label for="first_name">First Name</label>
+                                        <label for="first_name">Akta Pendirian</label>
                                         <input type="text" placeholder="ex: Laura" class="form-control" id="first_name" name="first_name">
                                     </div>
                                     <div class="form-holder">
-                                        <label for="last_name">Last Name</label>
+                                        <label for="last_name">SIUP</label>
                                         <input type="text" placeholder="ex: Vaughn" class="form-control" id="last_name" name="last_name">
                                     </div>
                                 </div>
-                                <div class="form-row">
+                                
+                                <!-- <div class="form-row">
                                     <div id="radio">
                                         <label for="gender">Gender:</label>
                                         <input type="radio" name="gender" value="male" checked> Male
                                         <input type="radio" name="gender" value="female"> Female
                                     </div>
+                                </div> -->
+                                <div class="form-row">
+                                    <div class="form-holder form-holder-2">
+                                        <label for="address">Tanda Daftar Perusahaan</label>
+                                        <input type="text" placeholder="622 Dixie Path, South Tobinchester, UT 98336" class="form-control" id="address" name="address">
+                                        <span><i class="zmdi zmdi-pin"></i></span>
+                                    </div>
                                 </div>
                                 <div class="form-row">
                                     <div class="form-holder form-holder-2">
-                                        <label for="address">Address Location</label>
+                                        <label for="address">Surat Izin Tempat Usaha</label>
+                                        <input type="text" placeholder="622 Dixie Path, South Tobinchester, UT 98336" class="form-control" id="address" name="address">
+                                        <span><i class="zmdi zmdi-pin"></i></span>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-holder form-holder-2">
+                                        <label for="address">Surat Izin Usaha Jasa Komunikasi dan Informasi</label>
+                                        <input type="text" placeholder="622 Dixie Path, South Tobinchester, UT 98336" class="form-control" id="address" name="address">
+                                        <span><i class="zmdi zmdi-pin"></i></span>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-holder form-holder-2">
+                                        <label for="address">Jenis Penerbitan Media Siber</label>
                                         <input type="text" placeholder="622 Dixie Path, South Tobinchester, UT 98336" class="form-control" id="address" name="address">
                                         <span><i class="zmdi zmdi-pin"></i></span>
                                     </div>
                                 </div>
                                 <div class="form-row">
                                     <div class="form-holder form-holder-3">
-                                        <label for="phone">Phone Number</label>
+                                        <label for="phone">Email Perusahaan</label>
                                         <input type="text" placeholder="+1 777-888-8888" class="form-control" id="phone" name="phone">
                                     </div>
                                     <div class="form-holder">
-                                        <label for="code">Zip Code</label>
+                                        <label for="code">Alamat Website</label>
                                         <input type="text" class="form-control" id="code" name="code">
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-holder form-holder-2">
+                                        <label for="address">NPWP</label>
+                                        <input type="text" placeholder="622 Dixie Path, South Tobinchester, UT 98336" class="form-control" id="address" name="address">
+                                        <span><i class="zmdi zmdi-pin"></i></span>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-holder form-holder-2">
+                                        <label for="address">SPT Tahunan terakhir</label>
+                                        <input type="text" placeholder="622 Dixie Path, South Tobinchester, UT 98336" class="form-control" id="address" name="address">
+                                        <span><i class="zmdi zmdi-pin"></i></span>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-holder form-holder-2">
+                                        <label for="address">Nomor Rekening</label>
+                                        <input type="text" placeholder="622 Dixie Path, South Tobinchester, UT 98336" class="form-control" id="address" name="address">
+                                        <span><i class="zmdi zmdi-pin"></i></span>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-holder form-holder-2">
+                                        <label for="address">Profil Perusahaan</label>
+                                        <input type="text" placeholder="622 Dixie Path, South Tobinchester, UT 98336" class="form-control" id="address" name="address">
+                                        <span><i class="zmdi zmdi-pin"></i></span>
                                     </div>
                                 </div>
                                 <div class="form-row form-row-date">
