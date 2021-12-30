@@ -11,22 +11,11 @@ class Home extends AUTH_Controller {
 
 	public function index() {
 		$data['jml_pegawai'] 	= $this->M_pegawai->total_rows();
-		
-	
 		$data['userdata'] 		= $this->userdata;
-
 		$rand = array('0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f');
-		
-		
+		$index = 0;
 		$index = 0;
 		
-
-		
-		$index = 0;
-		
-		
-		
-
 		$data['page'] 			= "home";
 		$data['subpage'] 		= "";
 		$data['judul'] 			= "Beranda";

@@ -28,7 +28,7 @@
 
       <?php
         if ($userdata->jenis_user == 1) {
-        ?>
+      ?>
 
       <li class="treeview <?php if($page=='Master'){echo "active";} ?>">
         <a href="">
@@ -102,43 +102,25 @@
         </ul>
       </li>
       <?php } ?>
+
       <li <?php if ($page == 'berita') {echo 'class="active"';} ?>>
         <a href="<?php echo base_url('Data_berita'); ?>">
           <i class="fa fa-user"></i>
           <span>Berita</span>
         </a>
       </li>
-<!-- 
-      <li <?php if ($page == 'merek') {echo 'class="active"';} ?>>
-        <a href="<?php echo base_url('Merek'); ?>">
-          <i class="fa fa-user"></i>
-          <span>Merek Kendaraan</span>
-        </a>
-      </li>
 
-      <li <?php if ($page == 'jenis_kendaraan') {echo 'class="active"';} ?>>
-        <a href="<?php echo base_url('Jenis-Kendaraan'); ?>">
-          <i class="fa fa-user"></i>
-          <span>Jenis Kendaraan</span>
-        </a>
-      </li>
-
-      <li <?php if ($page == 'posisi') {echo 'class="active"';} ?>>
-        <a href="<?php echo base_url('Posisi'); ?>">
-          <i class="fa fa-briefcase"></i>
-          <span>Data Posisi</span>
-        </a>
-      </li>
+      <?php
+        if ($userdata->status == 0) {
+      ?>
+        <li <?php if ($page == 'register') {echo 'class="active"';} ?>>
+          <a href="<?php echo base_url('Register'); ?>">
+            <i class="fa fa-registered"></i>
+            <span>Register</span>
+          </a>
+        </li>
+      <?php } ?>
       
-      <li <?php if ($page == 'kota') {echo 'class="active"';} ?>>
-        <a href="<?php echo base_url('Kota'); ?>">
-          <i class="fa fa-location-arrow"></i>
-          <span>Data Kota</span>
-        </a>
-      </li> -->
-
-      
-
     </ul>
     <!-- /.sidebar-menu -->
   </section>

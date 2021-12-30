@@ -17,6 +17,26 @@ class Auth extends CI_Controller {
 		}
 	}
 
+	public function log_in() {
+		$session = $this->session->userdata('status');
+
+		if ($session == '') {
+			$this->load->view('log-in');
+		} else {
+			redirect('Home');
+		}
+	}
+
+	public function daftar() {
+		$session = $this->session->userdata('status');
+
+		if ($session == '') {
+			$this->load->view('sign-up');
+		} else {
+			redirect('Home');
+		}
+	}
+
 	public function login() {
 		$this->form_validation->set_rules('username', 'Username', 'required|min_length[4]|max_length[15]');
 		$this->form_validation->set_rules('password', 'Password', 'required');
@@ -34,7 +54,7 @@ class Auth extends CI_Controller {
 			} else {
 				$session = [
 					'userdata' => $data,
-					'jenis_user' => $jenis_user,
+					'id' => $id,
 					'status' => "Loged in"
 				];
 				$this->session->set_userdata($session);
